@@ -58,9 +58,11 @@ h1, h2, h3, h4 {
 
 /* Navigation Bar */
 .navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
   background: rgba(26, 26, 46, 0.95);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -763,29 +765,65 @@ h1, h2, h3, h4 {
 
   .nav-menu {
     display: flex !important;
+    position: static !important;
+    flex-direction: row !important;
+    width: auto !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    padding: 0 !important;
+    gap: 2.5rem !important;
+    box-shadow: none !important;
+    border: none !important;
+    margin: 0 !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+  }
+
+  .nav-menu.active {
+    position: static !important;
+    flex-direction: row !important;
+    width: auto !important;
+    background: transparent !important;
   }
 
   .nav-menu li {
-    margin: 0;
-    width: 100%;
+    margin: 0 !important;
+    width: auto !important;
   }
 
   .nav-menu a {
-    display: block;
-    padding: 0.8rem 1rem;
-    font-size: 1rem;
-    border-radius: 8px;
-    transition: var(--transition);
+    display: inline-block !important;
+    padding: 0 !important;
+    font-size: 1rem !important;
+    border-radius: 0 !important;
+    background: transparent !important;
   }
 
   .nav-menu a:hover,
   .nav-menu a.active {
-    background: rgba(102, 126, 234, 0.2);
-    color: #ffffff;
+    background: transparent !important;
+    color: #ffffff !important;
   }
 
   .nav-menu a.active::after {
-    display: none;
+    display: block !important;
+  }
+
+
+  .navbar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+  }
+
+  .nav-container {
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
   }
 
   .lang-toggle {
