@@ -1,17 +1,40 @@
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 import CountryCard from '../components/CountryCard';
 import { countries, continents } from '../data/countries';
 import ParticleBackground from '../components/ParticleBackground';
+import { useEffect, useRef } from 'react';
 
 const ContinentPage = () => {
   const { continentKey } = useParams();
   const { language } = useLanguage();
   const navigate = useNavigate();
+  const location = useLocation();
+  const countryRef = useRef(null);
 
   const continent = continents[continentKey];
   const continentCountries = countries[continentKey] || [];
+
+  // Scroll to specific country if coming from grid
+  useEffect(() => {
+    if (location.state?.scrollToCountry) {
+      setTimeout(() => {
+        const countryElement = document.getElementById(location.state.scrollToCountry);
+        if (countryElement) {
+          countryElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          // Highlight the country card
+          const card = countryElement.querySelector('.country-card');
+          if (card) {
+            card.classList.add('highlighted');
+            setTimeout(() => {
+              card.classList.remove('highlighted');
+            }, 2000);
+          }
+        }
+      }, 800);
+    }
+  }, [location.state]);
 
   const pageVariants = {
     initial: { opacity: 0, y: 20 },
@@ -112,6 +135,8 @@ const ContinentPage = () => {
             continentCountries.map((country, index) => (
               <motion.div
                 key={country.id}
+                id={country.id}
+                ref={location.state?.scrollToCountry === country.id ? countryRef : null}
                 initial={{ opacity: 0, scale: 0.9, y: 30 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ 
