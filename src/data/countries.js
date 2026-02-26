@@ -18,7 +18,7 @@ export const countries = {
           fr: 'La capitale dynamique du Sénégal, connue pour sa musique, ses marchés colorés et le Monument de la Renaissance Africaine.',
           en: 'The vibrant capital of Senegal, known for its music, colorful markets, and the African Renaissance Monument.'
         },
-        image: '../../assets/Dakar-momument.jpg'
+        image: '/assets/Dakar-momument.jpg'
       },
       cuisine: {
         name: { fr: 'Thiébou Dieune', en: 'Thiébou Dieune' },
@@ -26,7 +26,7 @@ export const countries = {
           fr: 'Le plat national du Sénégal, un délicieux riz au poisson avec des légumes, épices et une sauce tomate savoureuse.',
           en: 'Senegal\'s national dish, a delicious fish and rice with vegetables, spices, and a flavorful tomato sauce.'
         },
-        image: '../../assets/dakar-cusine.jpg'
+        image: '/assets/dakar-cusine.jpg'
       }
     },
     {
@@ -47,7 +47,7 @@ export const countries = {
           fr: 'La ville impériale aux souks animés, aux palais magnifiques et à la place Jemaa el-Fnaa, un site du patrimoine mondial de l\'UNESCO.',
           en: 'The imperial city with bustling souks, magnificent palaces, and Jemaa el-Fnaa square, a UNESCO World Heritage site.'
         },
-        image: '../../assets/Marrakech-ville.jpg'
+        image: '/assets/Marrakech-ville.jpg'
       },
       cuisine: {
         name: { fr: 'Couscous', en: 'Couscous' },
@@ -55,7 +55,7 @@ export const countries = {
           fr: 'Un plat traditionnel maghrébin de semoule servie avec des légumes, de la viande ou du poisson, et des épices parfumées.',
           en: 'A traditional Maghrebi dish of semolina served with vegetables, meat or fish, and fragrant spices.'
         },
-        image: '../../assets/Couscous.jpeg'
+        image: '/assets/Couscous.jpeg'
       }
     }
   ],
@@ -78,7 +78,7 @@ export const countries = {
           fr: 'Une ville internationale cosmopolite, siège de nombreuses organisations internationales, avec le magnifique lac Léman et les Alpes en arrière-plan.',
           en: 'A cosmopolitan international city, home to many international organizations, with the beautiful Lake Geneva and the Alps in the background.'
         },
-        image: '../../assets/Genève.jpeg'
+        image: '/assets/Genève.jpeg'
       },
       cuisine: {
         name: { fr: 'Fondue', en: 'Fondue' },
@@ -86,7 +86,7 @@ export const countries = {
           fr: 'Un plat emblématique suisse de fromage fondu servi dans un caquelon, traditionnellement dégusté avec du pain et du vin blanc.',
           en: 'An iconic Swiss dish of melted cheese served in a caquelon, traditionally enjoyed with bread and white wine.'
         },
-        image: '../../assets/Fondue.jpg'
+        image: '/assets/Fondue.jpg'
       }
     },
     {
@@ -107,7 +107,7 @@ export const countries = {
           fr: 'La capitale de la Belgique et de l\'Union européenne, célèbre pour sa Grand-Place, ses musées, son architecture art nouveau et bien sûr, ses délicieuses gaufres et chocolats.',
           en: 'The capital of Belgium and the European Union, famous for its Grand Place, museums, Art Nouveau architecture, and of course, its delicious waffles and chocolates.'
         },
-        image: '../../assets/Bruxelles.jpg'
+        image: '/assets/Bruxelles.jpg'
       },
       cuisine: {
         name: { fr: 'Moules-frites', en: 'Moules-frites' },
@@ -115,7 +115,7 @@ export const countries = {
           fr: 'Le plat national belge par excellence : des moules cuites dans une sauce savoureuse accompagnées de frites croustillantes, un véritable délice culinaire.',
           en: 'The quintessential Belgian national dish: mussels cooked in a flavorful sauce served with crispy fries, a true culinary delight.'
         },
-        image: '../../assets/Moules-frites.jpg'
+        image: '/assets/Moules-frites.jpg'
       }
     }
   ],
@@ -138,7 +138,7 @@ export const countries = {
           fr: 'La plus grande ville francophone d\'Amérique du Nord, un mélange fascinant de culture européenne et nord-américaine, avec son Vieux-Montréal historique et sa scène artistique dynamique.',
           en: 'The largest French-speaking city in North America, a fascinating blend of European and North American culture, with its historic Old Montreal and vibrant arts scene.'
         },
-        image: '../../assets/Montréal.jpg'
+        image: '/assets/Montréal.jpg'
       },
       cuisine: {
         name: { fr: 'Poutine', en: 'Poutine' },
@@ -146,7 +146,7 @@ export const countries = {
           fr: 'Le plat emblématique du Québec : des frites croustillantes recouvertes de fromage en grains et nappées d\'une sauce brune chaude, un réconfort culinaire unique.',
           en: 'Quebec\'s iconic dish: crispy fries topped with cheese curds and smothered in hot brown gravy, a unique culinary comfort food.'
         },
-        image: '../../assets/Poutine.jpg'
+        image: '/assets/Poutine.jpg'
       }
     },
     {
@@ -167,7 +167,7 @@ export const countries = {
           fr: 'La capitale animée d\'Haïti, avec son histoire riche, ses marchés colorés, son art vibrant et sa culture caribéenne unique.',
           en: 'The vibrant capital of Haiti, with its rich history, colorful markets, vibrant art, and unique Caribbean culture.'
         },
-        image: '../../assets/Port-au-Prince.jpg'
+        image: '/assets/Port-au-Prince.jpg'
       },
       cuisine: {
         name: { fr: 'Griot', en: 'Griot' },
@@ -175,7 +175,7 @@ export const countries = {
           fr: 'Un plat traditionnel haïtien de porc mariné et frit, servi avec du riz et des haricots, accompagné de bananes plantains frites, un délice épicé et savoureux.',
           en: 'A traditional Haitian dish of marinated and fried pork, served with rice and beans, accompanied by fried plantains, a spicy and flavorful delight.'
         },
-        image: '../../assets/Griot.jpeg'
+        image: '/assets/Griot.jpeg'
       }
     }
   ],
@@ -198,7 +198,7 @@ export const countries = {
           fr: 'La capitale millénaire du Viêt Nam, avec son quartier français historique, ses temples anciens, ses lacs paisibles et son architecture coloniale préservée.',
           en: 'The millennial capital of Vietnam, with its historic French quarter, ancient temples, peaceful lakes, and preserved colonial architecture.'
         },
-        image: '../../assets/Hanoï.jpg'
+        image: '/assets/Hanoï.jpg'
       },
       cuisine: {
         name: { fr: 'Phở', en: 'Phở' },
@@ -206,7 +206,7 @@ export const countries = {
           fr: 'La soupe de nouilles emblématique du Viêt Nam, avec du bouillon parfumé, des nouilles de riz, de la viande et des herbes fraîches, un plat réconfortant et délicieux.',
           en: 'Vietnam\'s iconic noodle soup, with fragrant broth, rice noodles, meat, and fresh herbs, a comforting and delicious dish.'
         },
-        image: '../../assets/Phở.jpg'
+        image: '/assets/Phở.jpg'
       }
     },
     {
@@ -227,7 +227,7 @@ export const countries = {
           fr: 'La capitale cosmopolite du Liban, connue comme le \'Paris du Moyen-Orient\', avec sa vie nocturne animée, sa cuisine exceptionnelle, ses plages et son architecture mélangeant styles traditionnels et modernes.',
           en: 'The cosmopolitan capital of Lebanon, known as the \'Paris of the Middle East\', with its vibrant nightlife, exceptional cuisine, beaches, and architecture blending traditional and modern styles.'
         },
-        image: '../../assets/Beyrouth.jpg'
+        image: '/assets/Beyrouth.jpg'
       },
       cuisine: {
         name: { fr: 'Mezze', en: 'Mezze' },
@@ -235,7 +235,7 @@ export const countries = {
           fr: 'Une sélection de petits plats partagés, incluant houmous, taboulé, baba ganoush, falafels et bien plus encore, représentant la générosité et la convivialité de la cuisine libanaise.',
           en: 'A selection of shared small dishes, including hummus, tabbouleh, baba ganoush, falafels, and much more, representing the generosity and conviviality of Lebanese cuisine.'
         },
-        image: '../../assets/Mezze.jpeg'
+        image: '/assets/Mezze.jpeg'
       }
     }
   ]
