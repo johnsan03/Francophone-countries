@@ -5,16 +5,6 @@ import { useLanguage } from '../context/LanguageContext';
 import { countries } from '../data/countries';
 import WorldMapTransition from './WorldMapTransition';
 
-// Simple shuffle helper to randomize an array in-place
-function shuffleArray(arr) {
-  const array = [...arr];
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array;
-}
-
 const CountryGame = () => {
   const { language } = useLanguage();
   const navigate = useNavigate();
@@ -34,33 +24,6 @@ const CountryGame = () => {
   const [transitionCountry, setTransitionCountry] = useState(null);
   const [transitionContinent, setTransitionContinent] = useState(null);
   const [expandingCard, setExpandingCard] = useState(null);
-
-  // Static randomized pattern for where countries/placeholders appear
-  // This is created once per component mount so the layout feels random
-  // but doesn't keep changing during the game.
-  const [squarePattern] = useState(() => {
-    const basePattern = [
-      { type: 'country', index: 0 },
-      { type: 'placeholder', index: 1 },
-      { type: 'country', index: 3 },
-      { type: 'placeholder', index: 0 },
-      { type: 'country', index: 1 },
-      { type: 'placeholder', index: 2 },
-      { type: 'country', index: 2 },
-      { type: 'placeholder', index: 3 },
-      { type: 'country', index: 4 },
-      { type: 'placeholder', index: 5 },
-      { type: 'country', index: 5 },
-      { type: 'placeholder', index: 4 },
-      { type: 'country', index: 6 },
-      { type: 'placeholder', index: 6 },
-      { type: 'country', index: 7 },
-      { type: 'placeholder', index: 7 }
-    ];
-
-    // Randomize the pattern slightly but keep it static for this session
-    return shuffleArray(basePattern);
-  });
 
   // Save to localStorage whenever visited countries change
   useEffect(() => {
@@ -100,7 +63,7 @@ const CountryGame = () => {
     "You're about to discover something extraordinary!"
   ];
 
-  // Create squares array using a static randomized pattern
+  // Create fixed squares array (no randomization)
   const squares = useMemo(() => {
     // Create country squares in fixed order
     const countrySquares = allCountries.map((country) => {
@@ -129,20 +92,36 @@ const CountryGame = () => {
       icon: ['🎯', '🌟', '🗺️', '✨', '🌍', '🎨', '🚀', '💫'][index]
     }));
 
-    // Apply the static randomized pattern to build the grid
-    const orderedSquares = squarePattern.map((patternItem, index) => {
-      const baseSquare = patternItem.type === 'country'
-        ? countrySquares[patternItem.index]
-        : placeholderSquares[patternItem.index];
-
-      return {
-        ...baseSquare,
-        id: index
-      };
-    });
-
-    return orderedSquares;
-  }, [visitedCountries, language, squarePattern]); // Rebuild when visited status or language changes
+    // Fixed pattern: alternate between countries and placeholders
+    // First row: 2 countries, 2 placeholders
+    // Second row: 2 countries, 2 placeholders
+    // Third row: 2 countries, 2 placeholders
+    // Fourth row: 2 countries, 2 placeholders
+    const fixedOrder = [
+      countrySquares[0], // Senegal
+      placeholderSquares[1],  
+      countrySquares[3],   // Belgium
+      placeholderSquares[0],
+      countrySquares[1],  // Morocco
+      placeholderSquares[2],
+      countrySquares[2],   // Switzerland
+      placeholderSquares[3],
+      countrySquares[4],   // Canada
+      placeholderSquares[5],
+      countrySquares[5],   // Haiti
+      placeholderSquares[4],
+      countrySquares[6],   // Vietnam
+      placeholderSquares[6],
+      countrySquares[7],   // Lebanon
+      placeholderSquares[7]
+    ];
+    
+    // Create final squares array with IDs
+    return fixedOrder.map((square, index) => ({
+      ...square,
+      id: index
+    }));
+  }, [visitedCountries, language]); // Only re-create when visited status or language changes
 
   const handleSquareClick = (square) => {
     if (!gameStarted) {
@@ -208,16 +187,17 @@ const CountryGame = () => {
     visible: {
       opacity: 1,
       transition: {
-      staggerChildren: 0.05
+        staggerChildren: 0.05
       }
     }
   };
 
   const squareVariants = {
-  hidden: { opacity: 0, scale: 0.8 },
+    hidden: { opacity: 0, scale: 0.8, rotate: -180 },
     visible: { 
       opacity: 1, 
       scale: 1,
+      rotate: 0,
       transition: { 
         duration: 0.5,
         type: "spring",
@@ -278,10 +258,10 @@ const CountryGame = () => {
             return (
               <motion.div
                 key={square.id}
-                className={`grid-square ${square.type} ${selectedSquare === square.id ? 'selected' : ''} ${hoveredSquare === square.id ? 'hovered' : ''} ${square.visited ? 'visited' : ''} ${isRevealed ? 'revealed' : 'hidden'} ${expandingCard === square.id ? 'expanding' : ''} color-variant-${square.id % 8}`}
+                className={`grid-square ${square.type} ${selectedSquare === square.id ? 'selected' : ''} ${hoveredSquare === square.id ? 'hovered' : ''} ${square.visited ? 'visited' : ''} ${isRevealed ? 'revealed' : 'hidden'} ${expandingCard === square.id ? 'expanding' : ''}`}
                 variants={squareVariants}
-                whileHover={expandingCard === square.id ? {} : (isRevealed ? { scale: 1.08, zIndex: 10 } : { scale: 1.05, zIndex: 10 })}
-                whileTap={{ scale: 0.92 }}
+                whileHover={expandingCard === square.id ? {} : (isRevealed ? { scale: 1.08, zIndex: 10, rotate: 5 } : { scale: 1.05, zIndex: 10 })}
+                whileTap={{ scale: 0.92, rotate: isRevealed ? -5 : 0 }}
                 onClick={() => handleSquareClick(square)}
                 onMouseEnter={() => setHoveredSquare(square.id)}
                 onMouseLeave={() => setHoveredSquare(null)}
