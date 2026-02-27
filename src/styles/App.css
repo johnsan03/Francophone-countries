@@ -6,20 +6,39 @@
 }
 
 :root {
-  --primary-color: #ffffff;
-  --secondary-color: #f1f5f9;
-  --accent-color: #e0e7ff;
-  --gradient-start: #6366f1;
-  --gradient-end: #8b5cf6;
-  --gradient-alt: #06b6d4;
-  --gradient-alt-end: #3b82f6;
-  --text-dark: #0f172a;
-  --text-light: #475569;
-  --bg-light: #f1f5f9;
-  --bg-card: #ffffff;
-  --bg-white: #ffffff;
-  --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  --shadow-hover: 0 8px 30px rgba(99, 102, 241, 0.2);
+  /* Beautiful Light Color Palette */
+  --primary-color: #fef3f2; /* Soft Peach */
+  --secondary-color: #f0f9ff; /* Sky Blue */
+  --accent-color: #f5f3ff; /* Lavender */
+  --tertiary-color: #f0fdf4; /* Mint Green */
+  --quaternary-color: #fffbeb; /* Warm Cream */
+  
+  /* Gradient Colors */
+  --gradient-start: #a78bfa; /* Purple */
+  --gradient-end: #f472b6; /* Pink */
+  --gradient-alt: #60a5fa; /* Blue */
+  --gradient-alt-end: #34d399; /* Emerald */
+  
+  /* Text Colors */
+  --text-dark: #1e293b; /* Dark Slate */
+  --text-light: #64748b; /* Medium Slate */
+  --text-accent: #7c3aed; /* Purple */
+  
+  /* Background Colors */
+  --bg-light: #fef7ff; /* Very Light Lavender */
+  --bg-card: #ffffff; /* Pure White for cards */
+  --bg-section-1: #fef3f2; /* Soft Peach */
+  --bg-section-2: #f0f9ff; /* Sky Blue */
+  --bg-section-3: #f5f3ff; /* Lavender */
+  --bg-section-4: #f0fdf4; /* Mint */
+  
+  /* Shadows with color tints */
+  --shadow: 0 4px 20px rgba(167, 139, 250, 0.15);
+  --shadow-hover: 0 8px 30px rgba(167, 139, 250, 0.25);
+  --shadow-pink: 0 4px 20px rgba(244, 114, 182, 0.15);
+  --shadow-blue: 0 4px 20px rgba(96, 165, 250, 0.15);
+  --shadow-green: 0 4px 20px rgba(52, 211, 153, 0.15);
+  
   --border-radius: 16px;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -32,7 +51,7 @@ body {
   font-family: 'Poppins', sans-serif;
   line-height: 1.6;
   color: var(--text-dark);
-  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
+  background: linear-gradient(135deg, #fef3f2 0%, #f0f9ff 30%, #f5f3ff 60%, #f0fdf4 100%);
   background-attachment: fixed;
   overflow-x: hidden;
   min-height: 100vh;
@@ -113,13 +132,13 @@ h1, h2, h3, h4 {
   left: 0 !important;
   right: 0 !important;
   width: 100% !important;
-  background: rgba(255, 255, 255, 1);
+  background: linear-gradient(135deg, rgba(254, 243, 242, 0.95), rgba(240, 249, 255, 0.95));
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1), 0 4px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 10px rgba(167, 139, 250, 0.15), 0 4px 20px rgba(244, 114, 182, 0.1);
   z-index: 1000;
   padding: 1rem 0;
-  border-bottom: 2px solid rgba(99, 102, 241, 0.2);
+  border-bottom: 2px solid rgba(167, 139, 250, 0.3);
 }
 
 .nav-container {
@@ -184,11 +203,11 @@ h1, h2, h3, h4 {
   height: 2px;
   background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
   transition: var(--transition);
-  box-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
+  box-shadow: 0 0 10px rgba(167, 139, 250, 0.4);
 }
 
 .nav-menu a:hover {
-  color: var(--gradient-start);
+  color: var(--text-accent);
 }
 
 .nav-menu a:hover::after {
@@ -413,12 +432,12 @@ h1, h2, h3, h4 {
 
 /* Country Card */
 .country-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.95));
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(245, 243, 255, 0.95));
   border-radius: var(--border-radius);
   padding: 3rem;
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(99, 102, 241, 0.2);
+  border: 2px solid rgba(167, 139, 250, 0.3);
   box-shadow: var(--shadow);
   transition: var(--transition);
   backdrop-filter: blur(10px);
@@ -438,7 +457,7 @@ h1, h2, h3, h4 {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+  background: linear-gradient(135deg, rgba(167, 139, 250, 0.15), rgba(244, 114, 182, 0.15));
   opacity: 0;
   transition: var(--transition);
   z-index: 0;
@@ -454,7 +473,7 @@ h1, h2, h3, h4 {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(167, 139, 250, 0.25) 0%, rgba(244, 114, 182, 0.2) 50%, transparent 70%);
   opacity: 0;
   transition: var(--transition);
   pointer-events: none;
@@ -465,9 +484,10 @@ h1, h2, h3, h4 {
 }
 
 .country-card:hover {
-  border-color: rgba(99, 102, 241, 0.4);
+  border-color: rgba(167, 139, 250, 0.5);
   box-shadow: var(--shadow-hover);
   transform: translateY(-5px);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(245, 243, 255, 0.98));
 }
 
 .country-card::after {
@@ -542,11 +562,11 @@ h1, h2, h3, h4 {
 }
 
 .detail-item {
-  background: #ffffff;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(240, 249, 255, 0.95));
   padding: 2rem;
   border-radius: 15px;
   transition: var(--transition);
-  border: 1px solid rgba(99, 102, 241, 0.2);
+  border: 2px solid rgba(167, 139, 250, 0.25);
   backdrop-filter: blur(10px);
   position: relative;
   z-index: 2;
@@ -557,13 +577,13 @@ h1, h2, h3, h4 {
   box-sizing: border-box;
   overflow: hidden;
   max-width: 100%;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow);
 }
 
 .detail-item:hover {
-  background: rgba(102, 126, 234, 0.08);
-  border-color: rgba(99, 102, 241, 0.25);
-  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(245, 243, 255, 0.98));
+  border-color: rgba(167, 139, 250, 0.4);
+  box-shadow: var(--shadow-hover);
   transform: translateX(5px) translateY(-2px);
 }
 
@@ -1455,9 +1475,9 @@ h1, h2, h3, h4 {
   position: relative;
   z-index: 1;
   min-height: 85vh;
-  background: linear-gradient(180deg, transparent 0%, rgba(102, 126, 234, 0.05) 50%, transparent 100%);
-  border-top: 2px solid rgba(99, 102, 241, 0.15);
-  border-bottom: 2px solid rgba(99, 102, 241, 0.15);
+  background: linear-gradient(180deg, rgba(240, 249, 255, 0.6) 0%, rgba(245, 243, 255, 0.8) 50%, rgba(240, 253, 244, 0.6) 100%);
+  border-top: 2px solid rgba(167, 139, 250, 0.3);
+  border-bottom: 2px solid rgba(244, 114, 182, 0.3);
 }
 
 .game-background {
@@ -1844,6 +1864,79 @@ h1, h2, h3, h4 {
     inset 0 -1px 0 rgba(0, 0, 0, 0.2);
 }
 
+/* Unique light color variants for each card */
+.grid-square.color-variant-0 .square-front {
+  background: linear-gradient(135deg, rgba(224, 231, 255, 0.95), rgba(237, 242, 255, 0.95));
+  border-color: rgba(99, 102, 241, 0.25);
+  box-shadow: 
+    0 8px 32px rgba(99, 102, 241, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(99, 102, 241, 0.1);
+}
+
+.grid-square.color-variant-1 .square-front {
+  background: linear-gradient(135deg, rgba(254, 226, 226, 0.95), rgba(255, 241, 242, 0.95));
+  border-color: rgba(239, 68, 68, 0.25);
+  box-shadow: 
+    0 8px 32px rgba(239, 68, 68, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(239, 68, 68, 0.1);
+}
+
+.grid-square.color-variant-2 .square-front {
+  background: linear-gradient(135deg, rgba(254, 240, 199, 0.95), rgba(255, 251, 235, 0.95));
+  border-color: rgba(245, 158, 11, 0.25);
+  box-shadow: 
+    0 8px 32px rgba(245, 158, 11, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(245, 158, 11, 0.1);
+}
+
+.grid-square.color-variant-3 .square-front {
+  background: linear-gradient(135deg, rgba(209, 250, 229, 0.95), rgba(236, 253, 245, 0.95));
+  border-color: rgba(34, 197, 94, 0.25);
+  box-shadow: 
+    0 8px 32px rgba(34, 197, 94, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(34, 197, 94, 0.1);
+}
+
+.grid-square.color-variant-4 .square-front {
+  background: linear-gradient(135deg, rgba(221, 214, 254, 0.95), rgba(237, 233, 254, 0.95));
+  border-color: rgba(139, 92, 246, 0.25);
+  box-shadow: 
+    0 8px 32px rgba(139, 92, 246, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(139, 92, 246, 0.1);
+}
+
+.grid-square.color-variant-5 .square-front {
+  background: linear-gradient(135deg, rgba(254, 202, 202, 0.95), rgba(255, 237, 237, 0.95));
+  border-color: rgba(251, 113, 133, 0.25);
+  box-shadow: 
+    0 8px 32px rgba(251, 113, 133, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(251, 113, 133, 0.1);
+}
+
+.grid-square.color-variant-6 .square-front {
+  background: linear-gradient(135deg, rgba(165, 243, 252, 0.95), rgba(207, 250, 254, 0.95));
+  border-color: rgba(6, 182, 212, 0.25);
+  box-shadow: 
+    0 8px 32px rgba(6, 182, 212, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(6, 182, 212, 0.1);
+}
+
+.grid-square.color-variant-7 .square-front {
+  background: linear-gradient(135deg, rgba(196, 181, 253, 0.95), rgba(221, 214, 254, 0.95));
+  border-color: rgba(167, 139, 250, 0.25);
+  box-shadow: 
+    0 8px 32px rgba(167, 139, 250, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(167, 139, 250, 0.1);
+}
+
 /* Enhanced back card */
 .square-back {
   background: linear-gradient(
@@ -1879,6 +1972,47 @@ h1, h2, h3, h4 {
       0 20px 50px rgba(15, 23, 42, 0.18),
       0 0 30px rgba(148, 163, 184, 0.25),
       inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  }
+  
+  /* Mobile color variants */
+  .grid-square.color-variant-0 .square-front {
+    background: linear-gradient(135deg, rgba(224, 231, 255, 0.98), rgba(237, 242, 255, 0.98));
+    border-color: rgba(99, 102, 241, 0.3);
+  }
+  
+  .grid-square.color-variant-1 .square-front {
+    background: linear-gradient(135deg, rgba(254, 226, 226, 0.98), rgba(255, 241, 242, 0.98));
+    border-color: rgba(239, 68, 68, 0.3);
+  }
+  
+  .grid-square.color-variant-2 .square-front {
+    background: linear-gradient(135deg, rgba(254, 240, 199, 0.98), rgba(255, 251, 235, 0.98));
+    border-color: rgba(245, 158, 11, 0.3);
+  }
+  
+  .grid-square.color-variant-3 .square-front {
+    background: linear-gradient(135deg, rgba(209, 250, 229, 0.98), rgba(236, 253, 245, 0.98));
+    border-color: rgba(34, 197, 94, 0.3);
+  }
+  
+  .grid-square.color-variant-4 .square-front {
+    background: linear-gradient(135deg, rgba(221, 214, 254, 0.98), rgba(237, 233, 254, 0.98));
+    border-color: rgba(139, 92, 246, 0.3);
+  }
+  
+  .grid-square.color-variant-5 .square-front {
+    background: linear-gradient(135deg, rgba(254, 202, 202, 0.98), rgba(255, 237, 237, 0.98));
+    border-color: rgba(251, 113, 133, 0.3);
+  }
+  
+  .grid-square.color-variant-6 .square-front {
+    background: linear-gradient(135deg, rgba(165, 243, 252, 0.98), rgba(207, 250, 254, 0.98));
+    border-color: rgba(6, 182, 212, 0.3);
+  }
+  
+  .grid-square.color-variant-7 .square-front {
+    background: linear-gradient(135deg, rgba(196, 181, 253, 0.98), rgba(221, 214, 254, 0.98));
+    border-color: rgba(167, 139, 250, 0.3);
   }
   
   .square-back {
@@ -2414,22 +2548,22 @@ h1, h2, h3, h4 {
 }
 
 .interactive-counter {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.95));
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(245, 243, 255, 0.95));
   border-radius: 16px;
   padding: 2rem;
   text-align: center;
-  border: 2px solid rgba(99, 102, 241, 0.15);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(167, 139, 250, 0.3);
+  box-shadow: var(--shadow);
   cursor: pointer;
   transition: var(--transition);
   backdrop-filter: blur(10px);
 }
 
 .interactive-counter:hover {
-  border-color: rgba(99, 102, 241, 0.3);
-  box-shadow: 0 8px 30px rgba(99, 102, 241, 0.2);
+  border-color: rgba(167, 139, 250, 0.5);
+  box-shadow: var(--shadow-hover);
   transform: translateY(-3px);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(248, 250, 252, 1));
+  background: linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(245, 243, 255, 1));
 }
 
 .counter-icon {
@@ -2979,12 +3113,12 @@ h1, h2, h3, h4 {
 }
 
 .continent-card {
-  background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(245, 243, 255, 0.9));
   border-radius: var(--border-radius);
   padding: 3rem 2rem;
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(99, 102, 241, 0.2);
+  border: 2px solid rgba(167, 139, 250, 0.3);
   box-shadow: var(--shadow);
   cursor: pointer;
   transition: var(--transition);
@@ -3003,7 +3137,7 @@ h1, h2, h3, h4 {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(167, 139, 250, 0.25) 0%, rgba(244, 114, 182, 0.2) 50%, transparent 70%);
   opacity: 0;
   transition: var(--transition);
   pointer-events: none;
@@ -3014,9 +3148,10 @@ h1, h2, h3, h4 {
 }
 
 .continent-card:hover {
-  border-color: rgba(99, 102, 241, 0.4);
+  border-color: rgba(167, 139, 250, 0.5);
   box-shadow: var(--shadow-hover);
   transform: translateY(-5px);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(245, 243, 255, 0.98));
 }
 
 .continent-card-shine {
@@ -3055,7 +3190,7 @@ h1, h2, h3, h4 {
 
 .continent-card-title {
   font-size: 2rem;
-  color: #ffffff;
+  color: var(--text-dark);
   margin-bottom: 1.5rem;
   font-family: 'Playfair Display', serif;
 }
@@ -3068,12 +3203,13 @@ h1, h2, h3, h4 {
   font-weight: 600;
   font-size: 1.1rem;
   margin-top: 1rem;
-  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.25);
+  box-shadow: var(--shadow);
   transition: var(--transition);
 }
 
 .continent-card:hover .explore-btn {
-  box-shadow: 0 6px 25px rgba(99, 102, 241, 0.4);
+  box-shadow: var(--shadow-hover);
+  transform: scale(1.05);
 }
 
 /* Continent Page */
@@ -3103,10 +3239,10 @@ h1, h2, h3, h4 {
 }
 
 .back-button {
-  background: rgba(255, 255, 255, 0.95);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(245, 243, 255, 0.95));
   color: var(--text-dark);
-  border: 2px solid rgba(99, 102, 241, 0.3);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border: 2px solid rgba(167, 139, 250, 0.3);
+  box-shadow: var(--shadow);
   padding: 0.8rem 1.5rem;
   border-radius: 30px;
   font-size: 1rem;
@@ -3133,7 +3269,7 @@ h1, h2, h3, h4 {
   width: 0;
   height: 0;
   border-radius: 50%;
-  background: rgba(99, 102, 241, 0.2);
+  background: rgba(167, 139, 250, 0.2);
   transform: translate(-50%, -50%);
   transition: width 0.6s, height 0.6s;
 }
@@ -3144,9 +3280,10 @@ h1, h2, h3, h4 {
 }
 
 .back-button:hover {
-  background: rgba(99, 102, 241, 0.1);
-  border-color: rgba(99, 102, 241, 0.5);
-  color: var(--gradient-start);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(245, 243, 255, 1));
+  border-color: rgba(167, 139, 250, 0.5);
+  color: var(--text-accent);
+  box-shadow: var(--shadow-hover);
 }
 
 .continent-page-title {

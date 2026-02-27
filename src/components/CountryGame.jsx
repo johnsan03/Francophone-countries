@@ -278,7 +278,7 @@ const CountryGame = () => {
             return (
               <motion.div
                 key={square.id}
-                className={`grid-square ${square.type} ${selectedSquare === square.id ? 'selected' : ''} ${hoveredSquare === square.id ? 'hovered' : ''} ${square.visited ? 'visited' : ''} ${isRevealed ? 'revealed' : 'hidden'} ${expandingCard === square.id ? 'expanding' : ''}`}
+                className={`grid-square ${square.type} ${selectedSquare === square.id ? 'selected' : ''} ${hoveredSquare === square.id ? 'hovered' : ''} ${square.visited ? 'visited' : ''} ${isRevealed ? 'revealed' : 'hidden'} ${expandingCard === square.id ? 'expanding' : ''} color-variant-${square.id % 8}`}
                 variants={squareVariants}
                 whileHover={expandingCard === square.id ? {} : (isRevealed ? { scale: 1.08, zIndex: 10 } : { scale: 1.05, zIndex: 10 })}
                 whileTap={{ scale: 0.92 }}
