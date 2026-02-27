@@ -98,21 +98,22 @@ const CountryGame = () => {
     // Third row: 2 countries, 2 placeholders
     // Fourth row: 2 countries, 2 placeholders
     const fixedOrder = [
-      countrySquares[0],   // Senegal
-      countrySquares[1],   // Morocco
-      placeholderSquares[0],
-      placeholderSquares[1],
-      countrySquares[2],   // Switzerland
+      countrySquares[0], // Senegal
+      placeholderSquares[1],  
       countrySquares[3],   // Belgium
+      placeholderSquares[0],
+      countrySquares[1],  // Morocco
+   
       placeholderSquares[2],
+      countrySquares[2],   // Switzerland
       placeholderSquares[3],
       countrySquares[4],   // Canada
+      placeholderSquares[5],
       countrySquares[5],   // Haiti
       placeholderSquares[4],
-      placeholderSquares[5],
       countrySquares[6],   // Vietnam
-      countrySquares[7],   // Lebanon
       placeholderSquares[6],
+      countrySquares[7],   // Lebanon
       placeholderSquares[7]
     ];
     
