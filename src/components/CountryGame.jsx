@@ -226,6 +226,7 @@ const CountryGame = () => {
           variants={gridVariants}
           initial="hidden"
           animate="visible"
+          viewport={{ once: true, amount: 0.2 }}
         >
           {squares.map((square) => {
             const isRevealed = revealedSquares.includes(square.id);
