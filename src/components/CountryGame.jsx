@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { countries } from '../data/countries';
+import WorldMapTransition from './WorldMapTransition';
 
 const CountryGame = () => {
   const { language } = useLanguage();
@@ -19,6 +20,10 @@ const CountryGame = () => {
     return saved ? JSON.parse(saved) : [];
   });
   const [showMessage, setShowMessage] = useState(null);
+  const [showMapTransition, setShowMapTransition] = useState(false);
+  const [transitionCountry, setTransitionCountry] = useState(null);
+  const [transitionContinent, setTransitionContinent] = useState(null);
+  const [expandingCard, setExpandingCard] = useState(null);
 
   // Save to localStorage whenever visited countries change
   useEffect(() => {
@@ -138,14 +143,14 @@ const CountryGame = () => {
         setSelectedSquare(square.id);
         setShowMessage(null);
         
-        // Navigate with animation delay
+        // Start cinematic transition
+        setExpandingCard(square.id);
+        
+        // After card expansion, show map
         setTimeout(() => {
-          navigate(`/continent/${square.continentKey}`, { 
-            state: { 
-              scrollToCountry: square.country.id,
-              fromGame: true 
-            } 
-          });
+          setTransitionCountry(square.country);
+          setTransitionContinent(square.continentKey);
+          setShowMapTransition(true);
         }, 400);
       } else {
         setSelectedSquare(square.id);
@@ -156,6 +161,25 @@ const CountryGame = () => {
         }, 3000);
       }
     }, 300);
+  };
+
+  const handleTransitionComplete = () => {
+    // Navigate after transition completes
+    if (transitionCountry && transitionContinent) {
+      navigate(`/continent/${transitionContinent}`, { 
+        state: { 
+          scrollToCountry: transitionCountry.id,
+          fromGame: true 
+        } 
+      });
+      
+      // Reset transition state
+      setShowMapTransition(false);
+      setTransitionCountry(null);
+      setTransitionContinent(null);
+      setExpandingCard(null);
+      setSelectedSquare(null);
+    }
   };
 
   const gridVariants = {
@@ -234,14 +258,20 @@ const CountryGame = () => {
             return (
               <motion.div
                 key={square.id}
-                className={`grid-square ${square.type} ${selectedSquare === square.id ? 'selected' : ''} ${hoveredSquare === square.id ? 'hovered' : ''} ${square.visited ? 'visited' : ''} ${isRevealed ? 'revealed' : 'hidden'}`}
+                className={`grid-square ${square.type} ${selectedSquare === square.id ? 'selected' : ''} ${hoveredSquare === square.id ? 'hovered' : ''} ${square.visited ? 'visited' : ''} ${isRevealed ? 'revealed' : 'hidden'} ${expandingCard === square.id ? 'expanding' : ''}`}
                 variants={squareVariants}
-                whileHover={isRevealed ? { scale: 1.08, zIndex: 10, rotate: 5 } : { scale: 1.05, zIndex: 10 }}
+                whileHover={expandingCard === square.id ? {} : (isRevealed ? { scale: 1.08, zIndex: 10, rotate: 5 } : { scale: 1.05, zIndex: 10 })}
                 whileTap={{ scale: 0.92, rotate: isRevealed ? -5 : 0 }}
                 onClick={() => handleSquareClick(square)}
                 onMouseEnter={() => setHoveredSquare(square.id)}
                 onMouseLeave={() => setHoveredSquare(null)}
                 style={{ perspective: '1000px' }}
+                animate={expandingCard === square.id ? {
+                  scale: 1.15,
+                  zIndex: 9999,
+                  filter: 'blur(2px)'
+                } : {}}
+                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
               >
                 <motion.div
                   className="square-inner"
@@ -416,6 +446,14 @@ const CountryGame = () => {
             </motion.div>
           )}
         </AnimatePresence>
+
+        {/* Cinematic World Map Transition */}
+        <WorldMapTransition
+          isVisible={showMapTransition}
+          country={transitionCountry}
+          continentKey={transitionContinent}
+          onComplete={handleTransitionComplete}
+        />
 
         {visitedCountries.length === 8 && (
           <motion.div
