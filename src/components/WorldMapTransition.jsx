@@ -75,7 +75,7 @@ function MapView({ center, zoom }) {
 }
 
 // Custom marker icon
-const createCustomIcon = (color = '#667eea') => {
+const createCustomIcon = (color = '#367D8A') => {
   return L.divIcon({
     className: 'custom-marker',
     html: `

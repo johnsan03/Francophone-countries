@@ -260,8 +260,8 @@ const CountryGame = () => {
                 key={square.id}
                 className={`grid-square ${square.type} ${selectedSquare === square.id ? 'selected' : ''} ${hoveredSquare === square.id ? 'hovered' : ''} ${square.visited ? 'visited' : ''} ${isRevealed ? 'revealed' : 'hidden'} ${expandingCard === square.id ? 'expanding' : ''}`}
                 variants={squareVariants}
-                whileHover={expandingCard === square.id ? {} : (isRevealed ? { scale: 1.08, zIndex: 10, rotate: 5 } : { scale: 1.05, zIndex: 10 })}
-                whileTap={{ scale: 0.92, rotate: isRevealed ? -5 : 0 }}
+                whileHover={expandingCard === square.id ? {} : (isRevealed ? { scale: 1.08, zIndex: 10 } : { scale: 1.05, zIndex: 10 })}
+                whileTap={{ scale: 0.92 }}
                 onClick={() => handleSquareClick(square)}
                 onMouseEnter={() => setHoveredSquare(square.id)}
                 onMouseLeave={() => setHoveredSquare(null)}

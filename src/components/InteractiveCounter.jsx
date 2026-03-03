@@ -29,8 +29,6 @@ const InteractiveCounter = ({ end, duration = 2, label, icon }) => {
       initial={{ opacity: 0, scale: 0.5 }}
       animate={isInView ? { opacity: 1, scale: 1 } : {}}
       transition={{ duration: 0.5 }}
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.95 }}
     >
       <div className="counter-icon">{icon}</div>
       <div className="counter-number">{count}+</div>
