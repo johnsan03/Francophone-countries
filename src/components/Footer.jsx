@@ -20,8 +20,8 @@ const Footer = () => {
         </p>
         <p className="footer-credits">
           {language === 'fr'
-            ? 'Créé avec ❤️ pour célébrer la francophonie  par la classe A1'
-            : 'Created with ❤️ to celebrate Francophonie by A1 class'}
+            ? 'Créé avec ❤️ pour célébrer la francophonie  par la classe A1.2 Intensive'
+            : 'Created with ❤️ to celebrate Francophonie by A1.2 Intensive class'}
         </p>
       </div>
     </motion.footer>

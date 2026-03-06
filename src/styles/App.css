@@ -4528,9 +4528,22 @@ html.map-transition-active {
 .splash-content {
   text-align: center;
   padding: 2rem;
-  max-width: 600px;
+  width: min(92vw, 640px);
+  max-width: 640px;
+  max-height: calc(100dvh - 2.5rem);
   position: relative;
-  z-index: 1;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: transparent;
+  pointer-events: none;
+}
+
+.splash-content > * {
+  pointer-events: auto;
 }
 
 .splash-logo {
@@ -4568,10 +4581,118 @@ html.map-transition-active {
 .splash-message {
   font-size: clamp(1rem, 3vw, 1.5rem);
   color: var(--text-dark);
-  margin-bottom: 3rem;
+  margin-bottom: 1.6rem;
   font-weight: 500;
   line-height: 1.6;
   text-shadow: 0 2px 8px rgba(127, 184, 200, 0.3);
+}
+
+.splash-popups-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.splash-name-popup {
+  position: absolute;
+  padding: 0.65rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(232, 245, 248, 0.65);
+  border: 1px solid rgba(127, 184, 200, 0.3);
+  color: var(--text-dark);
+  font-weight: 700;
+  box-shadow: 0 8px 24px rgba(127, 184, 200, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  white-space: nowrap;
+  max-width: min(80vw, 420px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.9rem;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.splash-credits {
+  margin: 0 auto 1.8rem auto;
+  padding: 1.2rem 1.2rem 1.1rem 1.2rem;
+  border-radius: 20px;
+  background: rgba(232, 245, 248, 0.65);
+  border: 1px solid rgba(127, 184, 200, 0.35);
+  box-shadow: 0 20px 60px rgba(127, 184, 200, 0.25);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  width: 100%;
+  max-height: clamp(220px, 38dvh, 420px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.splash-credits-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 0.35rem;
+  letter-spacing: 0.2px;
+}
+
+.splash-credits-subtitle {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-light);
+  margin-bottom: 0.9rem;
+}
+
+.splash-names-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 0.55rem;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 0.15rem 0.25rem 0.25rem 0.25rem;
+}
+
+.splash-names-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.splash-names-list::-webkit-scrollbar-track {
+  background: rgba(127, 184, 200, 0.12);
+  border-radius: 999px;
+}
+
+.splash-names-list::-webkit-scrollbar-thumb {
+  background: rgba(127, 184, 200, 0.35);
+  border-radius: 999px;
+}
+
+.splash-names-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(127, 184, 200, 0.5);
+}
+
+.splash-name-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(208, 232, 240, 0.75);
+  border: 1px solid rgba(127, 184, 200, 0.35);
+  color: var(--text-dark);
+  font-weight: 700;
+  font-size: 0.92rem;
+  opacity: 0.18;
+  transform: translateY(4px);
+  transition: opacity 260ms ease, transform 260ms ease, box-shadow 260ms ease;
+}
+
+.splash-name-chip.is-shown {
+  opacity: 1;
+  transform: translateY(0);
+  box-shadow: 0 10px 24px rgba(127, 184, 200, 0.22);
 }
 
 .splash-loader {
@@ -4597,6 +4718,11 @@ html.map-transition-active {
 
 /* Mobile Responsive - Splash Screen */
 @media (max-width: 768px) {
+  .splash-content {
+    padding: 1.6rem 1rem;
+    max-height: calc(100dvh - 1.5rem);
+  }
+
   .splash-logo {
     font-size: 4rem;
     margin-bottom: 1.5rem;
@@ -4609,8 +4735,26 @@ html.map-transition-active {
 
   .splash-message {
     font-size: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.4rem;
     padding: 0 1rem;
+  }
+
+  .splash-credits {
+    padding: 1rem;
+    border-radius: 18px;
+    margin-bottom: 1.4rem;
+    max-height: clamp(210px, 42dvh, 380px);
+  }
+
+  .splash-name-popup {
+    padding: 0.55rem 0.8rem;
+    font-size: 0.95rem;
+    max-width: 74vw;
+  }
+
+  .splash-name-chip {
+    font-size: 0.88rem;
+    padding: 0.4rem 0.6rem;
   }
 
   .loader-spinner {
@@ -4621,6 +4765,11 @@ html.map-transition-active {
 }
 
 @media (max-width: 480px) {
+  .splash-content {
+    padding: 1.3rem 0.9rem;
+    max-height: calc(100dvh - 1.25rem);
+  }
+
   .splash-logo {
     font-size: 3rem;
     margin-bottom: 1rem;
@@ -4633,6 +4782,23 @@ html.map-transition-active {
   .splash-message {
     font-size: 0.9rem;
     padding: 0 0.5rem;
+  }
+
+  .splash-credits-title {
+    font-size: 1rem;
+  }
+
+  .splash-credits-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .splash-name-popup {
+    max-width: 78vw;
+  }
+
+  .splash-name-chip {
+    font-size: 0.84rem;
+    padding: 0.35rem 0.55rem;
   }
 }
 
