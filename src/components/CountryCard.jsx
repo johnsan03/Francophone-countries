@@ -24,7 +24,8 @@ const CountryCard = ({ country, index }) => {
       
       <motion.div
         className="country-flag"
-        whileHover={{ scale: 1.2, rotate: 10 }}
+        // Hover effect removed - no flying animation
+        // whileHover={{ scale: 1.2, rotate: 10 }}
         transition={{ type: "spring", stiffness: 300 }}
       >
         {country.flag}

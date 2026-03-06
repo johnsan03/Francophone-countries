@@ -222,8 +222,8 @@ const CountryGame = () => {
         >
           <h1 className="game-title">
             {language === 'fr' 
-              ? '🎮 Jeu des Pays Francophones' 
-              : '🎮 Francophone Countries Game'}
+              ? ' Jeu des Pays Francophones' 
+              : ' Francophone Countries Game'}
           </h1>
           <p className="game-instructions">
             {language === 'fr'
@@ -231,7 +231,8 @@ const CountryGame = () => {
               : 'Select a country to discover its culture, cuisine, and iconic cities'}
           </p>
           
-          {gameStarted && (
+          {/* Visit count display - commented out */}
+          {/* {gameStarted && (
             <motion.div
               className="game-stats"
               initial={{ opacity: 0, scale: 0.8 }}
@@ -242,7 +243,7 @@ const CountryGame = () => {
                 <span className="stat-value">{visitedCountries.length}/8</span>
               </div>
             </motion.div>
-          )}
+          )} */}
         </motion.div>
 
         <motion.div
@@ -260,7 +261,8 @@ const CountryGame = () => {
                 key={square.id}
                 className={`grid-square ${square.type} ${selectedSquare === square.id ? 'selected' : ''} ${hoveredSquare === square.id ? 'hovered' : ''} ${square.visited ? 'visited' : ''} ${isRevealed ? 'revealed' : 'hidden'} ${expandingCard === square.id ? 'expanding' : ''}`}
                 variants={squareVariants}
-                whileHover={expandingCard === square.id ? {} : (isRevealed ? { scale: 1.08, zIndex: 10 } : { scale: 1.05, zIndex: 10 })}
+                // Hover effect removed - no flying animation
+                // whileHover={expandingCard === square.id ? {} : (isRevealed ? { scale: 1.08, zIndex: 10 } : { scale: 1.05, zIndex: 10 })}
                 whileTap={{ scale: 0.92 }}
                 onClick={() => handleSquareClick(square)}
                 onMouseEnter={() => setHoveredSquare(square.id)}
@@ -310,9 +312,10 @@ const CountryGame = () => {
                     <div className="square-content">
                       {square.type === 'country' ? (
                         <>
-                          {square.visited && (
+                          {/* Visited badge - commented out */}
+                          {/* {square.visited && (
                             <div className="visited-badge">✓</div>
-                          )}
+                          )} */}
                           <motion.div 
                             className="square-flag"
                             animate={selectedSquare === square.id ? {
